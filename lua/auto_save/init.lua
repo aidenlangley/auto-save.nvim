@@ -9,8 +9,8 @@ local function create_autocmd()
     pattern = "*",
     callback = function(args)
       local bufnr = args.buf or vim.api.nvim_get_current_buf()
-      local is_modifiable = vim.fn.getbufvar(bufnr, "&modifiable")
-      local is_readonly = vim.fn.getbufvar(bufnr, "&readonly")
+      local is_modifiable = vim.fn.getbufvar(bufnr, "&modifiable") == 1
+      local is_readonly = vim.fn.getbufvar(bufnr, "&readonly") == 1
       local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
       local is_modified = vim.api.nvim_buf_get_option(bufnr, "modified")
 
