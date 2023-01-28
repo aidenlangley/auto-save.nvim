@@ -7,8 +7,9 @@ local function create_autocmd()
   vim.api.nvim_create_autocmd(config.events, {
     group = vim.api.nvim_create_augroup(config.augroup_name, { clear = true }),
     pattern = "*",
-    callback = function()
-      local bufnr = vim.api.nvim_get_current_buf()
+    callback = function(bufnr)
+      bufnr = bufnr or vim.api.nvim_get_current_buf()
+
       local is_modifiable = vim.fn.getbufvar(bufnr, "&modifiable")
       local is_readonly = vim.fn.getbufvar(bufnr, "&readonly")
       local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
