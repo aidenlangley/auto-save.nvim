@@ -16,38 +16,6 @@ run silently, it'll be silent. If you'd like to run your own command, you can
 configure `save_cmd` or `save_fn`. If `save_cmd` is defined, this is preferred
 and `save_fn` is discarded.
 
-# Configuring
-
-Only a few config options can be provided - these are displayed below, as well
-as their default values.
-
-```lua
-{
-  -- The name of the augroup.
-  augroup_name = "AutoSavePlug"
-
-  -- The events in which to trigger an auto save.
-  events = { "InsertLeave", "TextChanged" }
-
-  -- If you'd prefer to silence the output of `save_fn`.
-  silent = true
-
-  -- If you'd prefer to write a vim command.
-  save_cmd = nil
-
-  -- What to do after checking if auto save conditions have been met.
-  save_fn = function()
-    if M.save_cmd ~= nil then
-      vim.cmd(M.save_cmd)
-    elseif M.silent then
-      vim.cmd("silent! w")
-    else
-      vim.cmd("w")
-    end
-  end
-}
-```
-
 # Installing
 
 ## [lazy](https://github.com/folke/lazy.nvim)
@@ -78,4 +46,36 @@ as their default values.
 ```vim
 Plug 'https://git.sr.ht/~nedia/auto_save.nvim'
 lua require("auto_save").setup()
+```
+
+# Configuring
+
+Only a few config options can be provided - these are displayed below, as well
+as their default values.
+
+```lua
+{
+  -- The name of the augroup.
+  augroup_name = "AutoSavePlug"
+
+  -- The events in which to trigger an auto save.
+  events = { "InsertLeave", "TextChanged" }
+
+  -- If you'd prefer to silence the output of `save_fn`.
+  silent = true
+
+  -- If you'd prefer to write a vim command.
+  save_cmd = nil
+
+  -- What to do after checking if auto save conditions have been met.
+  save_fn = function()
+    if M.save_cmd ~= nil then
+      vim.cmd(M.save_cmd)
+    elseif M.silent then
+      vim.cmd("silent! w")
+    else
+      vim.cmd("w")
+    end
+  end
+}
 ```
