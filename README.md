@@ -1,3 +1,5 @@
+[![#lines](https://img.shields.io/tokei/lines/sr.ht/~nedia/auto_save.nvim?label=%23lines)](https://img.shields.io/tokei/lines/sr.ht/~nedia/auto_save.nvim?label=%23lines)
+
 # AutoSave
 
 Extremely simple auto save plugin.
@@ -48,7 +50,19 @@ as their default values.
 
 # Installing
 
-## [lazy](https://github.com/folke/lazy.nvim) & [packer](https://github.com/wbthomason/packer.nvim)
+## [lazy](https://github.com/folke/lazy.nvim) &
+
+```lua
+{
+  "https://git.sr.ht/~nedia/auto_save.nvim",
+  event = "BufReadPost",
+  config = function()
+    require("auto_save").setup()
+  end
+}
+```
+
+## [packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 {
