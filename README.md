@@ -50,7 +50,7 @@ as their default values.
 
 # Installing
 
-## [lazy](https://github.com/folke/lazy.nvim) &
+## [lazy](https://github.com/folke/lazy.nvim)
 
 ```lua
 {
