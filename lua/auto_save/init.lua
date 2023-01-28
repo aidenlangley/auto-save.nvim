@@ -22,11 +22,13 @@ local function create_autocmd()
 end
 
 function M.setup(opts)
-  config.augroup_name = opts.augroup_name or config.augroup_name
-  config.events = opts.events or config.events
-  config.silent = opts.silent or config.silent
-  config.save_cmd = opts.save_cmd or config.save_cmd
-  config.save_fn = opts.save_fn or config.save_fn
+  if opts then
+    config.augroup_name = opts.augroup_name or config.augroup_name
+    config.events = opts.events or config.events
+    config.silent = opts.silent or config.silent
+    config.save_cmd = opts.save_cmd or config.save_cmd
+    config.save_fn = opts.save_fn or config.save_fn
+  end
 
   create_autocmd()
 end
