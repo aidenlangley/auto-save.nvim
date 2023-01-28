@@ -77,5 +77,5 @@ as their default values.
 
 ```vim
 Plug 'https://git.sr.ht/~nedia/auto_save.nvim'
-lua require("auto-save").setup()
+lua require("auto_save").setup()
 ```
