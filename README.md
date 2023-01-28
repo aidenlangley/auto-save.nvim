@@ -1,4 +1,4 @@
-[![#lines](https://img.shields.io/tokei/lines/sr.ht/~nedia/auto_save.nvim?label=%23lines)](https://img.shields.io/tokei/lines/sr.ht/~nedia/auto_save.nvim?label=%23lines)
+[![#lines](https://img.shields.io/tokei/lines/git.sr.ht/~nedia/auto_save.nvim?label=%23lines)](https://img.shields.io/tokei/lines/git.sr.ht/~nedia/auto_save.nvim?label=%23lines)
 
 # AutoSave
 
