@@ -69,8 +69,9 @@ as their default values.
 
   -- What to do after checking if auto save conditions have been met.
   save_fn = function()
-    if M.save_cmd ~= nil then
-      vim.cmd(M.save_cmd)
+    local config = require("auto_save.config")
+    if config.save_cmd ~= nil then
+      vim.cmd(config.save_cmd)
     elseif M.silent then
       vim.cmd("silent! w")
     else
