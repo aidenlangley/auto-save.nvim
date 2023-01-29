@@ -1,6 +1,6 @@
 ![Lines of code](https://img.shields.io/tokei/lines/git.sr.ht/~nedia/auto-save.nvim?style=flat-square)
 
-Open an issue [here](https://todo.sr.ht/~nedia/nvim).
+Open an issue [here](https://todo.sr.ht/~nedia/nvim) | mirrored on [GitHub](https://github.com/aidenlangley/auto-save.nvim)
 
 # AutoSave
 
