@@ -29,7 +29,7 @@ beforehand.
 ```lua
 {
   "https://git.sr.ht/~nedia/auto-save.nvim",
-  event = "BufReadPost",
+  event = "BufWinEnter",
   config = function()
     require("auto-save").setup()
   end
