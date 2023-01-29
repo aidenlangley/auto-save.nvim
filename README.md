@@ -88,7 +88,6 @@ require("auto-save").setup({
   -- that listens for `BufWritePre` event.
   timeout = nil,
 
-
   -- Define some filetypes to explicitly not save, in case our existing conditions
   -- don't quite catch all the buffers we'd prefer not to write to.
   exclude_ft = {},
