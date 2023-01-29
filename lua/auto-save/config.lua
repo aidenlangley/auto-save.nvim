@@ -4,7 +4,7 @@ local M = {}
 M.augroup_name = "AutoSavePlug"
 
 -- The events in which to trigger an auto save.
-M.events = { "InsertLeave", "TextChanged" }
+M.events = { "InsertLeave", "BufLeave" }
 
 -- If you'd prefer to silence the output of `save_fn`.
 M.silent = true
