@@ -49,6 +49,7 @@ function M.setup(opts)
     config.save_cmd = opts.save_cmd or config.save_cmd
     config.save_fn = opts.save_fn or config.save_fn
     config.timeout = opts.timeout or config.timeout
+    config.exclude_ft = opts.exclude_ft or config.exclude_ft
   end
 
   create_autocmd()
