@@ -45,7 +45,7 @@ function M.setup(opts)
   if opts then
     config.augroup_name = opts.augroup_name or config.augroup_name
     config.events = opts.events or config.events
-    config.silent = opts.silent or config.silent
+    config.silent = opts.silent
     config.save_cmd = opts.save_cmd or config.save_cmd
     config.save_fn = opts.save_fn or config.save_fn
     config.timeout = opts.timeout or config.timeout
