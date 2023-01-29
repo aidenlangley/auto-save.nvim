@@ -16,6 +16,11 @@ run silently, it'll be silent. If you'd like to run your own command, you can
 configure `save_cmd` or `save_fn`. If `save_cmd` is defined, this is preferred
 and `save_fn` is discarded.
 
+You may define a timeout, which can allow other autocmds to auto format, for
+example. An autocmd that listens for `BufReadPre` events and synchronously
+formats the buffer will not run before this without defering it for some length
+of time.
+
 # Installing
 
 ## [lazy](https://github.com/folke/lazy.nvim)
@@ -54,18 +59,18 @@ Only a few config options can be provided - these are displayed below, as well
 as their default values.
 
 ```lua
-{
+require("auto-save").setup({
   -- The name of the augroup.
-  augroup_name = "AutoSavePlug"
+  augroup_name = "AutoSavePlug",
 
   -- The events in which to trigger an auto save.
-  events = { "InsertLeave", "TextChanged" }
+  events = { "InsertLeave", "TextChanged" },
 
   -- If you'd prefer to silence the output of `save_fn`.
-  silent = true
+  silent = true,
 
   -- If you'd prefer to write a vim command.
-  save_cmd = nil
+  save_cmd = nil,
 
   -- What to do after checking if auto save conditions have been met.
   save_fn = function()
@@ -77,6 +82,11 @@ as their default values.
     else
       vim.cmd("w")
     end
-  end
-}
+  end,
+
+  -- May define a timeout, or a duration to defer the save for - this allows
+  -- for formatters to run, for example if they're configured via an autocmd
+  -- that listens for `BufWritePre` event.
+  timeout = nil,
+})
 ```

@@ -23,4 +23,9 @@ M.save_fn = function()
   end
 end
 
+-- May define a timeout, or a duration to defer the save for - this allows
+-- for formatters to run, for example if they're configured via an autocmd
+-- that listens for `BufWritePre` event.
+M.timeout = nil
+
 return M
