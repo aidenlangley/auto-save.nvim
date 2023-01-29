@@ -16,10 +16,9 @@ run silently, it'll be silent. If you'd like to run your own command, you can
 configure `save_cmd` or `save_fn`. If `save_cmd` is defined, this is preferred
 and `save_fn` is discarded.
 
-You may define a timeout, which can allow other autocmds to auto format, for
-example. An autocmd that listens for `BufReadPre` events and synchronously
-formats the buffer will not run before this without defering it for some length
-of time.
+This plugin allows for some configuration, such as explicitly excluding some
+filetypes, or defering the save function to allow for other things to run
+beforehand.
 
 # Installing
 
@@ -88,5 +87,23 @@ require("auto-save").setup({
   -- for formatters to run, for example if they're configured via an autocmd
   -- that listens for `BufWritePre` event.
   timeout = nil,
+
+
+  -- Define some filetypes to explicitly not save, in case our existing conditions
+  -- don't quite catch all the buffers we'd prefer not to write to.
+  exclude_ft = {},
+})
+```
+
+Since I tend to use the mouse a fair bit (a habit I'm trying to break), my
+config is as follows - it includes the `BufLeave` event (sometimes you move to
+a buffer without leaving insert mode), and excludes my file explorer (just
+seems to break it! Must be trying to write to it and messing up some sequential
+operation):
+
+```lua
+require("auto-save").setup({
+  events = { "InsertLeave", "BufLeave" },
+  exclude_ft = { "neo-tree" },
 })
 ```

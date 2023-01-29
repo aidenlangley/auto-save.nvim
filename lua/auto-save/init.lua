@@ -2,13 +2,25 @@ local M = {}
 
 local config = require("auto-save.config")
 
+---@param filetype string
+---@return boolean
+local function excluded_ft(filetype)
+  for _, v in ipairs(config.exclude_ft) do
+    return filetype == v
+  end
+  return false
+end
+
+---@param bufnr integer
+---@return boolean
 local function can_save(bufnr)
   local is_modifiable = vim.fn.getbufvar(bufnr, "&modifiable") == 1
   local is_readonly = vim.fn.getbufvar(bufnr, "&readonly") == 1
   local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
   local is_modified = vim.api.nvim_buf_get_option(bufnr, "modified")
+  local valid_ft = not excluded_ft(vim.api.nvim_buf_get_option(bufnr, "filetype"))
 
-  return is_modifiable and not is_readonly and buftype == "" and is_modified
+  return is_modifiable and not is_readonly and buftype == "" and is_modified and valid_ft
 end
 
 local function create_autocmd()

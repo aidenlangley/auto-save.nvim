@@ -28,4 +28,8 @@ end
 -- that listens for `BufWritePre` event.
 M.timeout = nil
 
+-- Define some filetypes to explicitly not save, in case our existing conditions
+-- don't quite catch all the buffers we'd prefer not to write to.
+M.exclude_ft = {}
+
 return M
