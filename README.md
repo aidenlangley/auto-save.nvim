@@ -1,4 +1,4 @@
-![Lines of code](https://img.shields.io/tokei/lines/git.sr.ht/~nedia/auto_save.nvim?style=flat-square)
+![Lines of code](https://img.shields.io/tokei/lines/git.sr.ht/~nedia/auto-save.nvim?style=flat-square)
 
 # AutoSave
 
@@ -22,10 +22,10 @@ and `save_fn` is discarded.
 
 ```lua
 {
-  "https://git.sr.ht/~nedia/auto_save.nvim",
+  "https://git.sr.ht/~nedia/auto-save.nvim",
   event = "BufReadPost",
   config = function()
-    require("auto_save").setup()
+    require("auto-save").setup()
   end
 }
 ```
@@ -34,9 +34,9 @@ and `save_fn` is discarded.
 
 ```lua
 {
-  "https://git.sr.ht/~nedia/auto_save.nvim",
+  "https://git.sr.ht/~nedia/auto-save.nvim",
   config = function()
-    require("auto_save").setup()
+    require("auto-save").setup()
   end
 }
 ```
@@ -44,8 +44,8 @@ and `save_fn` is discarded.
 ## [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'https://git.sr.ht/~nedia/auto_save.nvim'
-lua require("auto_save").setup()
+Plug 'https://git.sr.ht/~nedia/auto-save.nvim'
+lua require("auto-save").setup()
 ```
 
 # Configuring
@@ -69,7 +69,7 @@ as their default values.
 
   -- What to do after checking if auto save conditions have been met.
   save_fn = function()
-    local config = require("auto_save.config")
+    local config = require("auto-save.config")
     if config.save_cmd ~= nil then
       vim.cmd(config.save_cmd)
     elseif M.silent then

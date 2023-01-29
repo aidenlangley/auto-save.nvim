@@ -1,6 +1,6 @@
 local M = {}
 
-local config = require("auto_save.config")
+local config = require("auto-save.config")
 
 local function create_autocmd()
   -- Write buffer when leaving Insert mode
