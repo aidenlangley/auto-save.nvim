@@ -6,7 +6,9 @@ local config = require("auto-save.config")
 ---@return boolean
 local function excluded_ft(filetype)
   for _, v in ipairs(config.exclude_ft) do
-    return filetype == v
+    if filetype == v then
+      return true
+    end
   end
   return false
 end
