@@ -31,8 +31,13 @@ local function create_autocmd()
     callback = function(args)
       if can_save(args.buf or vim.api.nvim_get_current_buf()) then
         if config.timeout ~= nil then
-          ---@diagnostic disable-next-line: param-type-mismatch
-          vim.defer_fn(config.save_fn, config.timeout)
+          if M.save_timer ~= nil then
+            M.save_timer:stop()
+            ---@diagnostic disable-next-line: param-type-mismatch
+            M.save_timer = vim.defer_fn(config.save_fn, config.timeout)
+          else
+            M.save_timer = vim.defer_fn(config.save_fn, config.timeout)
+          end
         else
           config.save_fn()
         end
