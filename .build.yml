@@ -1,6 +1,7 @@
 image: alpine/edge
 secrets:
   - d3833187-afbb-4aae-9c68-7a5e74e5780b
+  - ff14669f-8fd8-4e3c-8a73-d4be8f69c627
 tasks:
   - push: |
       cd auto-save.nvim
