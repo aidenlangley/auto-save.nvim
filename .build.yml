@@ -1,0 +1,8 @@
+image: alpine/edge
+secrets:
+  - d3833187-afbb-4aae-9c68-7a5e74e5780b
+tasks:
+  - push: |
+      cd auto-save.nvim
+      git remote add gh git@github.com:aidenlangley/auto-save.nvim.git
+      git push gh main
