@@ -79,7 +79,7 @@ require("auto-save").setup({
     local config = require("auto-save.config")
     if config.save_cmd ~= nil then
       vim.cmd(config.save_cmd)
-    elseif M.silent then
+    elseif config.silent then
       vim.cmd("silent! w")
     else
       vim.cmd("w")
