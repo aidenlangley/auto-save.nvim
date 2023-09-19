@@ -29,10 +29,12 @@ beforehand.
 ```lua
 {
   "https://git.sr.ht/~nedia/auto-save.nvim",
-  event = "BufWinEnter",
-  config = function()
-    require("auto-save").setup()
-  end
+  event = { "BufReadPre" },
+  opts = {
+    events = { 'InsertLeave', 'BufLeave' },
+    silent = false,
+    exclude_ft = { 'neo-tree' },
+  },
 }
 ```
 
