@@ -21,8 +21,14 @@ local function can_save(bufnr)
   local buftype = vim.api.nvim_buf_get_option(bufnr, "buftype")
   local is_modified = vim.api.nvim_buf_get_option(bufnr, "modified")
   local valid_ft = not excluded_ft(vim.api.nvim_buf_get_option(bufnr, "filetype"))
+  local is_named = vim.fn.bufname() ~= ""
 
-  return is_modifiable and not is_readonly and buftype == "" and is_modified and valid_ft
+  return is_modifiable
+    and not is_readonly
+    and buftype == ""
+    and is_modified
+    and valid_ft
+    and is_named
 end
 
 local function create_autocmd()
