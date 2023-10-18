@@ -1,6 +1,6 @@
 image: alpine/edge
 secrets:
-  - 58c165fb-027b-4731-bd2a-7fcf93a0aaa0
+  - 5f499087-fd97-44a6-911c-2ed9fbde68ce
 tasks:
   - known_hosts: |
       ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
